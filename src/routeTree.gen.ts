@@ -11,6 +11,35 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VerifyEmailRouteImport } from './routes/verify-email'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiSettlementsIndexRouteImport } from './routes/api/settlements/index'
+import { Route as ApiGroupsIndexRouteImport } from './routes/api/groups/index'
+import { Route as ApiFriendsIndexRouteImport } from './routes/api/friends/index'
+import { Route as ApiActivityIndexRouteImport } from './routes/api/activity/index'
+import { Route as ApiUsersMeRouteImport } from './routes/api/users/me'
+import { Route as ApiGroupsIdRouteImport } from './routes/api/groups/$id'
+import { Route as ApiFriendsPendingRouteImport } from './routes/api/friends/pending'
+import { Route as ApiFriendsInviteRouteImport } from './routes/api/friends/invite'
+import { Route as ApiFriendsAcceptRouteImport } from './routes/api/friends/accept'
+import { Route as ApiFriendsUserIdRouteImport } from './routes/api/friends/$userId'
+import { Route as ApiExpensesIdRouteImport } from './routes/api/expenses/$id'
+import { Route as ApiBalancesSummaryRouteImport } from './routes/api/balances/summary'
+import { Route as ApiBalancesGroupsRouteImport } from './routes/api/balances/groups'
+import { Route as ApiBalancesFriendsRouteImport } from './routes/api/balances/friends'
+import { Route as ApiAuthVerifyEmailRouteImport } from './routes/api/auth/verify-email'
+import { Route as ApiAuthRegisterRouteImport } from './routes/api/auth/register'
+import { Route as ApiAuthRefreshRouteImport } from './routes/api/auth/refresh'
+import { Route as ApiAuthLogoutRouteImport } from './routes/api/auth/logout'
+import { Route as ApiAuthLoginRouteImport } from './routes/api/auth/login'
+import { Route as ApiAuthGoogleRouteImport } from './routes/api/auth/google'
+import { Route as ApiAuthCompleteProfileRouteImport } from './routes/api/auth/complete-profile'
+import { Route as ApiAuthAcceptInviteRouteImport } from './routes/api/auth/accept-invite'
+import { Route as ApiUsersMePasswordRouteImport } from './routes/api/users/me_.password'
+import { Route as ApiGroupsIdMembersRouteImport } from './routes/api/groups/$id/members'
+import { Route as ApiGroupsIdExpensesRouteImport } from './routes/api/groups/$id/expenses'
+import { Route as ApiGroupsIdBalancesRouteImport } from './routes/api/groups/$id/balances'
+import { Route as ApiFriendsUserIdBalancesRouteImport } from './routes/api/friends/$userId_.balances'
+import { Route as ApiGroupsIdMembersUserIdRouteImport } from './routes/api/groups/$id/members/$userId'
+import { Route as ApiFriendsInviteFriendshipIdGroupsRouteImport } from './routes/api/friends/invite_/$friendshipId/groups'
 
 const VerifyEmailRoute = VerifyEmailRouteImport.update({
   id: '/verify-email',
@@ -22,31 +51,385 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSettlementsIndexRoute = ApiSettlementsIndexRouteImport.update({
+  id: '/api/settlements/',
+  path: '/api/settlements/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiGroupsIndexRoute = ApiGroupsIndexRouteImport.update({
+  id: '/api/groups/',
+  path: '/api/groups/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiFriendsIndexRoute = ApiFriendsIndexRouteImport.update({
+  id: '/api/friends/',
+  path: '/api/friends/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiActivityIndexRoute = ApiActivityIndexRouteImport.update({
+  id: '/api/activity/',
+  path: '/api/activity/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiUsersMeRoute = ApiUsersMeRouteImport.update({
+  id: '/api/users/me',
+  path: '/api/users/me',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiGroupsIdRoute = ApiGroupsIdRouteImport.update({
+  id: '/api/groups/$id',
+  path: '/api/groups/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiFriendsPendingRoute = ApiFriendsPendingRouteImport.update({
+  id: '/api/friends/pending',
+  path: '/api/friends/pending',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiFriendsInviteRoute = ApiFriendsInviteRouteImport.update({
+  id: '/api/friends/invite',
+  path: '/api/friends/invite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiFriendsAcceptRoute = ApiFriendsAcceptRouteImport.update({
+  id: '/api/friends/accept',
+  path: '/api/friends/accept',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiFriendsUserIdRoute = ApiFriendsUserIdRouteImport.update({
+  id: '/api/friends/$userId',
+  path: '/api/friends/$userId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiExpensesIdRoute = ApiExpensesIdRouteImport.update({
+  id: '/api/expenses/$id',
+  path: '/api/expenses/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBalancesSummaryRoute = ApiBalancesSummaryRouteImport.update({
+  id: '/api/balances/summary',
+  path: '/api/balances/summary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBalancesGroupsRoute = ApiBalancesGroupsRouteImport.update({
+  id: '/api/balances/groups',
+  path: '/api/balances/groups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBalancesFriendsRoute = ApiBalancesFriendsRouteImport.update({
+  id: '/api/balances/friends',
+  path: '/api/balances/friends',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthVerifyEmailRoute = ApiAuthVerifyEmailRouteImport.update({
+  id: '/api/auth/verify-email',
+  path: '/api/auth/verify-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthRegisterRoute = ApiAuthRegisterRouteImport.update({
+  id: '/api/auth/register',
+  path: '/api/auth/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthRefreshRoute = ApiAuthRefreshRouteImport.update({
+  id: '/api/auth/refresh',
+  path: '/api/auth/refresh',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthLogoutRoute = ApiAuthLogoutRouteImport.update({
+  id: '/api/auth/logout',
+  path: '/api/auth/logout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthLoginRoute = ApiAuthLoginRouteImport.update({
+  id: '/api/auth/login',
+  path: '/api/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthGoogleRoute = ApiAuthGoogleRouteImport.update({
+  id: '/api/auth/google',
+  path: '/api/auth/google',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthCompleteProfileRoute = ApiAuthCompleteProfileRouteImport.update({
+  id: '/api/auth/complete-profile',
+  path: '/api/auth/complete-profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthAcceptInviteRoute = ApiAuthAcceptInviteRouteImport.update({
+  id: '/api/auth/accept-invite',
+  path: '/api/auth/accept-invite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiUsersMePasswordRoute = ApiUsersMePasswordRouteImport.update({
+  id: '/api/users/me_/password',
+  path: '/api/users/me/password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiGroupsIdMembersRoute = ApiGroupsIdMembersRouteImport.update({
+  id: '/members',
+  path: '/members',
+  getParentRoute: () => ApiGroupsIdRoute,
+} as any)
+const ApiGroupsIdExpensesRoute = ApiGroupsIdExpensesRouteImport.update({
+  id: '/expenses',
+  path: '/expenses',
+  getParentRoute: () => ApiGroupsIdRoute,
+} as any)
+const ApiGroupsIdBalancesRoute = ApiGroupsIdBalancesRouteImport.update({
+  id: '/balances',
+  path: '/balances',
+  getParentRoute: () => ApiGroupsIdRoute,
+} as any)
+const ApiFriendsUserIdBalancesRoute =
+  ApiFriendsUserIdBalancesRouteImport.update({
+    id: '/api/friends/$userId_/balances',
+    path: '/api/friends/$userId/balances',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiGroupsIdMembersUserIdRoute =
+  ApiGroupsIdMembersUserIdRouteImport.update({
+    id: '/$userId',
+    path: '/$userId',
+    getParentRoute: () => ApiGroupsIdMembersRoute,
+  } as any)
+const ApiFriendsInviteFriendshipIdGroupsRoute =
+  ApiFriendsInviteFriendshipIdGroupsRouteImport.update({
+    id: '/api/friends/invite_/$friendshipId/groups',
+    path: '/api/friends/invite/$friendshipId/groups',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/api/auth/accept-invite': typeof ApiAuthAcceptInviteRoute
+  '/api/auth/complete-profile': typeof ApiAuthCompleteProfileRoute
+  '/api/auth/google': typeof ApiAuthGoogleRoute
+  '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/logout': typeof ApiAuthLogoutRoute
+  '/api/auth/refresh': typeof ApiAuthRefreshRoute
+  '/api/auth/register': typeof ApiAuthRegisterRoute
+  '/api/auth/verify-email': typeof ApiAuthVerifyEmailRoute
+  '/api/balances/friends': typeof ApiBalancesFriendsRoute
+  '/api/balances/groups': typeof ApiBalancesGroupsRoute
+  '/api/balances/summary': typeof ApiBalancesSummaryRoute
+  '/api/expenses/$id': typeof ApiExpensesIdRoute
+  '/api/friends/$userId': typeof ApiFriendsUserIdRoute
+  '/api/friends/accept': typeof ApiFriendsAcceptRoute
+  '/api/friends/invite': typeof ApiFriendsInviteRoute
+  '/api/friends/pending': typeof ApiFriendsPendingRoute
+  '/api/groups/$id': typeof ApiGroupsIdRouteWithChildren
+  '/api/users/me': typeof ApiUsersMeRoute
+  '/api/activity/': typeof ApiActivityIndexRoute
+  '/api/friends/': typeof ApiFriendsIndexRoute
+  '/api/groups/': typeof ApiGroupsIndexRoute
+  '/api/settlements/': typeof ApiSettlementsIndexRoute
+  '/api/friends/$userId/balances': typeof ApiFriendsUserIdBalancesRoute
+  '/api/groups/$id/balances': typeof ApiGroupsIdBalancesRoute
+  '/api/groups/$id/expenses': typeof ApiGroupsIdExpensesRoute
+  '/api/groups/$id/members': typeof ApiGroupsIdMembersRouteWithChildren
+  '/api/users/me/password': typeof ApiUsersMePasswordRoute
+  '/api/friends/invite/$friendshipId/groups': typeof ApiFriendsInviteFriendshipIdGroupsRoute
+  '/api/groups/$id/members/$userId': typeof ApiGroupsIdMembersUserIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/api/auth/accept-invite': typeof ApiAuthAcceptInviteRoute
+  '/api/auth/complete-profile': typeof ApiAuthCompleteProfileRoute
+  '/api/auth/google': typeof ApiAuthGoogleRoute
+  '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/logout': typeof ApiAuthLogoutRoute
+  '/api/auth/refresh': typeof ApiAuthRefreshRoute
+  '/api/auth/register': typeof ApiAuthRegisterRoute
+  '/api/auth/verify-email': typeof ApiAuthVerifyEmailRoute
+  '/api/balances/friends': typeof ApiBalancesFriendsRoute
+  '/api/balances/groups': typeof ApiBalancesGroupsRoute
+  '/api/balances/summary': typeof ApiBalancesSummaryRoute
+  '/api/expenses/$id': typeof ApiExpensesIdRoute
+  '/api/friends/$userId': typeof ApiFriendsUserIdRoute
+  '/api/friends/accept': typeof ApiFriendsAcceptRoute
+  '/api/friends/invite': typeof ApiFriendsInviteRoute
+  '/api/friends/pending': typeof ApiFriendsPendingRoute
+  '/api/groups/$id': typeof ApiGroupsIdRouteWithChildren
+  '/api/users/me': typeof ApiUsersMeRoute
+  '/api/activity': typeof ApiActivityIndexRoute
+  '/api/friends': typeof ApiFriendsIndexRoute
+  '/api/groups': typeof ApiGroupsIndexRoute
+  '/api/settlements': typeof ApiSettlementsIndexRoute
+  '/api/friends/$userId/balances': typeof ApiFriendsUserIdBalancesRoute
+  '/api/groups/$id/balances': typeof ApiGroupsIdBalancesRoute
+  '/api/groups/$id/expenses': typeof ApiGroupsIdExpensesRoute
+  '/api/groups/$id/members': typeof ApiGroupsIdMembersRouteWithChildren
+  '/api/users/me/password': typeof ApiUsersMePasswordRoute
+  '/api/friends/invite/$friendshipId/groups': typeof ApiFriendsInviteFriendshipIdGroupsRoute
+  '/api/groups/$id/members/$userId': typeof ApiGroupsIdMembersUserIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/api/auth/accept-invite': typeof ApiAuthAcceptInviteRoute
+  '/api/auth/complete-profile': typeof ApiAuthCompleteProfileRoute
+  '/api/auth/google': typeof ApiAuthGoogleRoute
+  '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/logout': typeof ApiAuthLogoutRoute
+  '/api/auth/refresh': typeof ApiAuthRefreshRoute
+  '/api/auth/register': typeof ApiAuthRegisterRoute
+  '/api/auth/verify-email': typeof ApiAuthVerifyEmailRoute
+  '/api/balances/friends': typeof ApiBalancesFriendsRoute
+  '/api/balances/groups': typeof ApiBalancesGroupsRoute
+  '/api/balances/summary': typeof ApiBalancesSummaryRoute
+  '/api/expenses/$id': typeof ApiExpensesIdRoute
+  '/api/friends/$userId': typeof ApiFriendsUserIdRoute
+  '/api/friends/accept': typeof ApiFriendsAcceptRoute
+  '/api/friends/invite': typeof ApiFriendsInviteRoute
+  '/api/friends/pending': typeof ApiFriendsPendingRoute
+  '/api/groups/$id': typeof ApiGroupsIdRouteWithChildren
+  '/api/users/me': typeof ApiUsersMeRoute
+  '/api/activity/': typeof ApiActivityIndexRoute
+  '/api/friends/': typeof ApiFriendsIndexRoute
+  '/api/groups/': typeof ApiGroupsIndexRoute
+  '/api/settlements/': typeof ApiSettlementsIndexRoute
+  '/api/friends/$userId_/balances': typeof ApiFriendsUserIdBalancesRoute
+  '/api/groups/$id/balances': typeof ApiGroupsIdBalancesRoute
+  '/api/groups/$id/expenses': typeof ApiGroupsIdExpensesRoute
+  '/api/groups/$id/members': typeof ApiGroupsIdMembersRouteWithChildren
+  '/api/users/me_/password': typeof ApiUsersMePasswordRoute
+  '/api/friends/invite_/$friendshipId/groups': typeof ApiFriendsInviteFriendshipIdGroupsRoute
+  '/api/groups/$id/members/$userId': typeof ApiGroupsIdMembersUserIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/verify-email'
+  fullPaths:
+    | '/'
+    | '/verify-email'
+    | '/api/auth/accept-invite'
+    | '/api/auth/complete-profile'
+    | '/api/auth/google'
+    | '/api/auth/login'
+    | '/api/auth/logout'
+    | '/api/auth/refresh'
+    | '/api/auth/register'
+    | '/api/auth/verify-email'
+    | '/api/balances/friends'
+    | '/api/balances/groups'
+    | '/api/balances/summary'
+    | '/api/expenses/$id'
+    | '/api/friends/$userId'
+    | '/api/friends/accept'
+    | '/api/friends/invite'
+    | '/api/friends/pending'
+    | '/api/groups/$id'
+    | '/api/users/me'
+    | '/api/activity/'
+    | '/api/friends/'
+    | '/api/groups/'
+    | '/api/settlements/'
+    | '/api/friends/$userId/balances'
+    | '/api/groups/$id/balances'
+    | '/api/groups/$id/expenses'
+    | '/api/groups/$id/members'
+    | '/api/users/me/password'
+    | '/api/friends/invite/$friendshipId/groups'
+    | '/api/groups/$id/members/$userId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/verify-email'
-  id: '__root__' | '/' | '/verify-email'
+  to:
+    | '/'
+    | '/verify-email'
+    | '/api/auth/accept-invite'
+    | '/api/auth/complete-profile'
+    | '/api/auth/google'
+    | '/api/auth/login'
+    | '/api/auth/logout'
+    | '/api/auth/refresh'
+    | '/api/auth/register'
+    | '/api/auth/verify-email'
+    | '/api/balances/friends'
+    | '/api/balances/groups'
+    | '/api/balances/summary'
+    | '/api/expenses/$id'
+    | '/api/friends/$userId'
+    | '/api/friends/accept'
+    | '/api/friends/invite'
+    | '/api/friends/pending'
+    | '/api/groups/$id'
+    | '/api/users/me'
+    | '/api/activity'
+    | '/api/friends'
+    | '/api/groups'
+    | '/api/settlements'
+    | '/api/friends/$userId/balances'
+    | '/api/groups/$id/balances'
+    | '/api/groups/$id/expenses'
+    | '/api/groups/$id/members'
+    | '/api/users/me/password'
+    | '/api/friends/invite/$friendshipId/groups'
+    | '/api/groups/$id/members/$userId'
+  id:
+    | '__root__'
+    | '/'
+    | '/verify-email'
+    | '/api/auth/accept-invite'
+    | '/api/auth/complete-profile'
+    | '/api/auth/google'
+    | '/api/auth/login'
+    | '/api/auth/logout'
+    | '/api/auth/refresh'
+    | '/api/auth/register'
+    | '/api/auth/verify-email'
+    | '/api/balances/friends'
+    | '/api/balances/groups'
+    | '/api/balances/summary'
+    | '/api/expenses/$id'
+    | '/api/friends/$userId'
+    | '/api/friends/accept'
+    | '/api/friends/invite'
+    | '/api/friends/pending'
+    | '/api/groups/$id'
+    | '/api/users/me'
+    | '/api/activity/'
+    | '/api/friends/'
+    | '/api/groups/'
+    | '/api/settlements/'
+    | '/api/friends/$userId_/balances'
+    | '/api/groups/$id/balances'
+    | '/api/groups/$id/expenses'
+    | '/api/groups/$id/members'
+    | '/api/users/me_/password'
+    | '/api/friends/invite_/$friendshipId/groups'
+    | '/api/groups/$id/members/$userId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   VerifyEmailRoute: typeof VerifyEmailRoute
+  ApiAuthAcceptInviteRoute: typeof ApiAuthAcceptInviteRoute
+  ApiAuthCompleteProfileRoute: typeof ApiAuthCompleteProfileRoute
+  ApiAuthGoogleRoute: typeof ApiAuthGoogleRoute
+  ApiAuthLoginRoute: typeof ApiAuthLoginRoute
+  ApiAuthLogoutRoute: typeof ApiAuthLogoutRoute
+  ApiAuthRefreshRoute: typeof ApiAuthRefreshRoute
+  ApiAuthRegisterRoute: typeof ApiAuthRegisterRoute
+  ApiAuthVerifyEmailRoute: typeof ApiAuthVerifyEmailRoute
+  ApiBalancesFriendsRoute: typeof ApiBalancesFriendsRoute
+  ApiBalancesGroupsRoute: typeof ApiBalancesGroupsRoute
+  ApiBalancesSummaryRoute: typeof ApiBalancesSummaryRoute
+  ApiExpensesIdRoute: typeof ApiExpensesIdRoute
+  ApiFriendsUserIdRoute: typeof ApiFriendsUserIdRoute
+  ApiFriendsAcceptRoute: typeof ApiFriendsAcceptRoute
+  ApiFriendsInviteRoute: typeof ApiFriendsInviteRoute
+  ApiFriendsPendingRoute: typeof ApiFriendsPendingRoute
+  ApiGroupsIdRoute: typeof ApiGroupsIdRouteWithChildren
+  ApiUsersMeRoute: typeof ApiUsersMeRoute
+  ApiActivityIndexRoute: typeof ApiActivityIndexRoute
+  ApiFriendsIndexRoute: typeof ApiFriendsIndexRoute
+  ApiGroupsIndexRoute: typeof ApiGroupsIndexRoute
+  ApiSettlementsIndexRoute: typeof ApiSettlementsIndexRoute
+  ApiFriendsUserIdBalancesRoute: typeof ApiFriendsUserIdBalancesRoute
+  ApiUsersMePasswordRoute: typeof ApiUsersMePasswordRoute
+  ApiFriendsInviteFriendshipIdGroupsRoute: typeof ApiFriendsInviteFriendshipIdGroupsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +448,268 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/settlements/': {
+      id: '/api/settlements/'
+      path: '/api/settlements'
+      fullPath: '/api/settlements/'
+      preLoaderRoute: typeof ApiSettlementsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/groups/': {
+      id: '/api/groups/'
+      path: '/api/groups'
+      fullPath: '/api/groups/'
+      preLoaderRoute: typeof ApiGroupsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/friends/': {
+      id: '/api/friends/'
+      path: '/api/friends'
+      fullPath: '/api/friends/'
+      preLoaderRoute: typeof ApiFriendsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/activity/': {
+      id: '/api/activity/'
+      path: '/api/activity'
+      fullPath: '/api/activity/'
+      preLoaderRoute: typeof ApiActivityIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/users/me': {
+      id: '/api/users/me'
+      path: '/api/users/me'
+      fullPath: '/api/users/me'
+      preLoaderRoute: typeof ApiUsersMeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/groups/$id': {
+      id: '/api/groups/$id'
+      path: '/api/groups/$id'
+      fullPath: '/api/groups/$id'
+      preLoaderRoute: typeof ApiGroupsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/friends/pending': {
+      id: '/api/friends/pending'
+      path: '/api/friends/pending'
+      fullPath: '/api/friends/pending'
+      preLoaderRoute: typeof ApiFriendsPendingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/friends/invite': {
+      id: '/api/friends/invite'
+      path: '/api/friends/invite'
+      fullPath: '/api/friends/invite'
+      preLoaderRoute: typeof ApiFriendsInviteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/friends/accept': {
+      id: '/api/friends/accept'
+      path: '/api/friends/accept'
+      fullPath: '/api/friends/accept'
+      preLoaderRoute: typeof ApiFriendsAcceptRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/friends/$userId': {
+      id: '/api/friends/$userId'
+      path: '/api/friends/$userId'
+      fullPath: '/api/friends/$userId'
+      preLoaderRoute: typeof ApiFriendsUserIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/expenses/$id': {
+      id: '/api/expenses/$id'
+      path: '/api/expenses/$id'
+      fullPath: '/api/expenses/$id'
+      preLoaderRoute: typeof ApiExpensesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/balances/summary': {
+      id: '/api/balances/summary'
+      path: '/api/balances/summary'
+      fullPath: '/api/balances/summary'
+      preLoaderRoute: typeof ApiBalancesSummaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/balances/groups': {
+      id: '/api/balances/groups'
+      path: '/api/balances/groups'
+      fullPath: '/api/balances/groups'
+      preLoaderRoute: typeof ApiBalancesGroupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/balances/friends': {
+      id: '/api/balances/friends'
+      path: '/api/balances/friends'
+      fullPath: '/api/balances/friends'
+      preLoaderRoute: typeof ApiBalancesFriendsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/verify-email': {
+      id: '/api/auth/verify-email'
+      path: '/api/auth/verify-email'
+      fullPath: '/api/auth/verify-email'
+      preLoaderRoute: typeof ApiAuthVerifyEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/register': {
+      id: '/api/auth/register'
+      path: '/api/auth/register'
+      fullPath: '/api/auth/register'
+      preLoaderRoute: typeof ApiAuthRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/refresh': {
+      id: '/api/auth/refresh'
+      path: '/api/auth/refresh'
+      fullPath: '/api/auth/refresh'
+      preLoaderRoute: typeof ApiAuthRefreshRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/logout': {
+      id: '/api/auth/logout'
+      path: '/api/auth/logout'
+      fullPath: '/api/auth/logout'
+      preLoaderRoute: typeof ApiAuthLogoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/login': {
+      id: '/api/auth/login'
+      path: '/api/auth/login'
+      fullPath: '/api/auth/login'
+      preLoaderRoute: typeof ApiAuthLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/google': {
+      id: '/api/auth/google'
+      path: '/api/auth/google'
+      fullPath: '/api/auth/google'
+      preLoaderRoute: typeof ApiAuthGoogleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/complete-profile': {
+      id: '/api/auth/complete-profile'
+      path: '/api/auth/complete-profile'
+      fullPath: '/api/auth/complete-profile'
+      preLoaderRoute: typeof ApiAuthCompleteProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/accept-invite': {
+      id: '/api/auth/accept-invite'
+      path: '/api/auth/accept-invite'
+      fullPath: '/api/auth/accept-invite'
+      preLoaderRoute: typeof ApiAuthAcceptInviteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/users/me_/password': {
+      id: '/api/users/me_/password'
+      path: '/api/users/me/password'
+      fullPath: '/api/users/me/password'
+      preLoaderRoute: typeof ApiUsersMePasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/groups/$id/members': {
+      id: '/api/groups/$id/members'
+      path: '/members'
+      fullPath: '/api/groups/$id/members'
+      preLoaderRoute: typeof ApiGroupsIdMembersRouteImport
+      parentRoute: typeof ApiGroupsIdRoute
+    }
+    '/api/groups/$id/expenses': {
+      id: '/api/groups/$id/expenses'
+      path: '/expenses'
+      fullPath: '/api/groups/$id/expenses'
+      preLoaderRoute: typeof ApiGroupsIdExpensesRouteImport
+      parentRoute: typeof ApiGroupsIdRoute
+    }
+    '/api/groups/$id/balances': {
+      id: '/api/groups/$id/balances'
+      path: '/balances'
+      fullPath: '/api/groups/$id/balances'
+      preLoaderRoute: typeof ApiGroupsIdBalancesRouteImport
+      parentRoute: typeof ApiGroupsIdRoute
+    }
+    '/api/friends/$userId_/balances': {
+      id: '/api/friends/$userId_/balances'
+      path: '/api/friends/$userId/balances'
+      fullPath: '/api/friends/$userId/balances'
+      preLoaderRoute: typeof ApiFriendsUserIdBalancesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/groups/$id/members/$userId': {
+      id: '/api/groups/$id/members/$userId'
+      path: '/$userId'
+      fullPath: '/api/groups/$id/members/$userId'
+      preLoaderRoute: typeof ApiGroupsIdMembersUserIdRouteImport
+      parentRoute: typeof ApiGroupsIdMembersRoute
+    }
+    '/api/friends/invite_/$friendshipId/groups': {
+      id: '/api/friends/invite_/$friendshipId/groups'
+      path: '/api/friends/invite/$friendshipId/groups'
+      fullPath: '/api/friends/invite/$friendshipId/groups'
+      preLoaderRoute: typeof ApiFriendsInviteFriendshipIdGroupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
+
+interface ApiGroupsIdMembersRouteChildren {
+  ApiGroupsIdMembersUserIdRoute: typeof ApiGroupsIdMembersUserIdRoute
+}
+
+const ApiGroupsIdMembersRouteChildren: ApiGroupsIdMembersRouteChildren = {
+  ApiGroupsIdMembersUserIdRoute: ApiGroupsIdMembersUserIdRoute,
+}
+
+const ApiGroupsIdMembersRouteWithChildren =
+  ApiGroupsIdMembersRoute._addFileChildren(ApiGroupsIdMembersRouteChildren)
+
+interface ApiGroupsIdRouteChildren {
+  ApiGroupsIdBalancesRoute: typeof ApiGroupsIdBalancesRoute
+  ApiGroupsIdExpensesRoute: typeof ApiGroupsIdExpensesRoute
+  ApiGroupsIdMembersRoute: typeof ApiGroupsIdMembersRouteWithChildren
+}
+
+const ApiGroupsIdRouteChildren: ApiGroupsIdRouteChildren = {
+  ApiGroupsIdBalancesRoute: ApiGroupsIdBalancesRoute,
+  ApiGroupsIdExpensesRoute: ApiGroupsIdExpensesRoute,
+  ApiGroupsIdMembersRoute: ApiGroupsIdMembersRouteWithChildren,
+}
+
+const ApiGroupsIdRouteWithChildren = ApiGroupsIdRoute._addFileChildren(
+  ApiGroupsIdRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   VerifyEmailRoute: VerifyEmailRoute,
+  ApiAuthAcceptInviteRoute: ApiAuthAcceptInviteRoute,
+  ApiAuthCompleteProfileRoute: ApiAuthCompleteProfileRoute,
+  ApiAuthGoogleRoute: ApiAuthGoogleRoute,
+  ApiAuthLoginRoute: ApiAuthLoginRoute,
+  ApiAuthLogoutRoute: ApiAuthLogoutRoute,
+  ApiAuthRefreshRoute: ApiAuthRefreshRoute,
+  ApiAuthRegisterRoute: ApiAuthRegisterRoute,
+  ApiAuthVerifyEmailRoute: ApiAuthVerifyEmailRoute,
+  ApiBalancesFriendsRoute: ApiBalancesFriendsRoute,
+  ApiBalancesGroupsRoute: ApiBalancesGroupsRoute,
+  ApiBalancesSummaryRoute: ApiBalancesSummaryRoute,
+  ApiExpensesIdRoute: ApiExpensesIdRoute,
+  ApiFriendsUserIdRoute: ApiFriendsUserIdRoute,
+  ApiFriendsAcceptRoute: ApiFriendsAcceptRoute,
+  ApiFriendsInviteRoute: ApiFriendsInviteRoute,
+  ApiFriendsPendingRoute: ApiFriendsPendingRoute,
+  ApiGroupsIdRoute: ApiGroupsIdRouteWithChildren,
+  ApiUsersMeRoute: ApiUsersMeRoute,
+  ApiActivityIndexRoute: ApiActivityIndexRoute,
+  ApiFriendsIndexRoute: ApiFriendsIndexRoute,
+  ApiGroupsIndexRoute: ApiGroupsIndexRoute,
+  ApiSettlementsIndexRoute: ApiSettlementsIndexRoute,
+  ApiFriendsUserIdBalancesRoute: ApiFriendsUserIdBalancesRoute,
+  ApiUsersMePasswordRoute: ApiUsersMePasswordRoute,
+  ApiFriendsInviteFriendshipIdGroupsRoute:
+    ApiFriendsInviteFriendshipIdGroupsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
