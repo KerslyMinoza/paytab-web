@@ -12,7 +12,7 @@ function RouteComponent() {
   const token = searchParams.get('token');
 
   return (
-    <div>
+    <>
       <h2>Welcome to PayTab!</h2>
       <p>Please verify your email address to get started.</p>
       <p>
@@ -21,6 +21,6 @@ function RouteComponent() {
       <p>
         If you didn't create a PayTab account, you can safely ignore this email.
       </p>
-    </div>
+    </>
   );
 }
