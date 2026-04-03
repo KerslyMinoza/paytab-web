@@ -67,6 +67,7 @@ export const Route = createFileRoute('/api/groups/')({
         data: {
           name: body.name.trim(),
           imageUrl: body.imageUrl || null,
+          createdBy: user.id,
           members: {
             create: [
               { userId: user.id, role: 'ADMIN' },

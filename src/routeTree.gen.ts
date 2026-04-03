@@ -10,7 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VerifyEmailRouteImport } from './routes/verify-email'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SettlementsIndexRouteImport } from './routes/settlements/index'
+import { Route as GroupsIndexRouteImport } from './routes/groups/index'
+import { Route as FriendsIndexRouteImport } from './routes/friends/index'
+import { Route as GroupsIdRouteImport } from './routes/groups/$id'
 import { Route as ApiSettlementsIndexRouteImport } from './routes/api/settlements/index'
 import { Route as ApiGroupsIndexRouteImport } from './routes/api/groups/index'
 import { Route as ApiFriendsIndexRouteImport } from './routes/api/friends/index'
@@ -46,9 +52,39 @@ const VerifyEmailRoute = VerifyEmailRouteImport.update({
   path: '/verify-email',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettlementsIndexRoute = SettlementsIndexRouteImport.update({
+  id: '/settlements/',
+  path: '/settlements/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GroupsIndexRoute = GroupsIndexRouteImport.update({
+  id: '/groups/',
+  path: '/groups/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FriendsIndexRoute = FriendsIndexRouteImport.update({
+  id: '/friends/',
+  path: '/friends/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GroupsIdRoute = GroupsIdRouteImport.update({
+  id: '/groups/$id',
+  path: '/groups/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiSettlementsIndexRoute = ApiSettlementsIndexRouteImport.update({
@@ -202,7 +238,13 @@ const ApiFriendsInviteFriendshipIdGroupsRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/groups/$id': typeof GroupsIdRoute
+  '/friends/': typeof FriendsIndexRoute
+  '/groups/': typeof GroupsIndexRoute
+  '/settlements/': typeof SettlementsIndexRoute
   '/api/auth/accept-invite': typeof ApiAuthAcceptInviteRoute
   '/api/auth/complete-profile': typeof ApiAuthCompleteProfileRoute
   '/api/auth/google': typeof ApiAuthGoogleRoute
@@ -235,7 +277,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/groups/$id': typeof GroupsIdRoute
+  '/friends': typeof FriendsIndexRoute
+  '/groups': typeof GroupsIndexRoute
+  '/settlements': typeof SettlementsIndexRoute
   '/api/auth/accept-invite': typeof ApiAuthAcceptInviteRoute
   '/api/auth/complete-profile': typeof ApiAuthCompleteProfileRoute
   '/api/auth/google': typeof ApiAuthGoogleRoute
@@ -269,7 +317,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/groups/$id': typeof GroupsIdRoute
+  '/friends/': typeof FriendsIndexRoute
+  '/groups/': typeof GroupsIndexRoute
+  '/settlements/': typeof SettlementsIndexRoute
   '/api/auth/accept-invite': typeof ApiAuthAcceptInviteRoute
   '/api/auth/complete-profile': typeof ApiAuthCompleteProfileRoute
   '/api/auth/google': typeof ApiAuthGoogleRoute
@@ -304,7 +358,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/login'
+    | '/register'
     | '/verify-email'
+    | '/groups/$id'
+    | '/friends/'
+    | '/groups/'
+    | '/settlements/'
     | '/api/auth/accept-invite'
     | '/api/auth/complete-profile'
     | '/api/auth/google'
@@ -337,7 +397,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/login'
+    | '/register'
     | '/verify-email'
+    | '/groups/$id'
+    | '/friends'
+    | '/groups'
+    | '/settlements'
     | '/api/auth/accept-invite'
     | '/api/auth/complete-profile'
     | '/api/auth/google'
@@ -370,7 +436,13 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/login'
+    | '/register'
     | '/verify-email'
+    | '/groups/$id'
+    | '/friends/'
+    | '/groups/'
+    | '/settlements/'
     | '/api/auth/accept-invite'
     | '/api/auth/complete-profile'
     | '/api/auth/google'
@@ -404,7 +476,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
   VerifyEmailRoute: typeof VerifyEmailRoute
+  GroupsIdRoute: typeof GroupsIdRoute
+  FriendsIndexRoute: typeof FriendsIndexRoute
+  GroupsIndexRoute: typeof GroupsIndexRoute
+  SettlementsIndexRoute: typeof SettlementsIndexRoute
   ApiAuthAcceptInviteRoute: typeof ApiAuthAcceptInviteRoute
   ApiAuthCompleteProfileRoute: typeof ApiAuthCompleteProfileRoute
   ApiAuthGoogleRoute: typeof ApiAuthGoogleRoute
@@ -441,11 +519,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VerifyEmailRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settlements/': {
+      id: '/settlements/'
+      path: '/settlements'
+      fullPath: '/settlements/'
+      preLoaderRoute: typeof SettlementsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/groups/': {
+      id: '/groups/'
+      path: '/groups'
+      fullPath: '/groups/'
+      preLoaderRoute: typeof GroupsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/friends/': {
+      id: '/friends/'
+      path: '/friends'
+      fullPath: '/friends/'
+      preLoaderRoute: typeof FriendsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/groups/$id': {
+      id: '/groups/$id'
+      path: '/groups/$id'
+      fullPath: '/groups/$id'
+      preLoaderRoute: typeof GroupsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/settlements/': {
@@ -683,7 +803,13 @@ const ApiGroupsIdRouteWithChildren = ApiGroupsIdRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
   VerifyEmailRoute: VerifyEmailRoute,
+  GroupsIdRoute: GroupsIdRoute,
+  FriendsIndexRoute: FriendsIndexRoute,
+  GroupsIndexRoute: GroupsIndexRoute,
+  SettlementsIndexRoute: SettlementsIndexRoute,
   ApiAuthAcceptInviteRoute: ApiAuthAcceptInviteRoute,
   ApiAuthCompleteProfileRoute: ApiAuthCompleteProfileRoute,
   ApiAuthGoogleRoute: ApiAuthGoogleRoute,

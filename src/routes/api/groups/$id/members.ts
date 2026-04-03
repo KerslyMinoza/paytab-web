@@ -57,15 +57,15 @@ export const Route = createFileRoute('/api/groups/$id/members')({
         where: {
           status: 'ACCEPTED',
           OR: [
-            { requesterId: user.id, addresseeId: { in: body.userIds } },
-            { addresseeId: user.id, requesterId: { in: body.userIds } },
+            { userId: user.id, friendId: { in: body.userIds } },
+            { friendId: user.id, userId: { in: body.userIds } },
           ],
         },
       })
 
       const friendIds = new Set(
         friendships.map((f) =>
-          f.requesterId === user.id ? f.addresseeId : f.requesterId,
+          f.userId === user.id ? f.friendId : f.userId,
         ),
       )
 

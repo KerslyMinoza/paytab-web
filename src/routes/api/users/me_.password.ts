@@ -33,6 +33,10 @@ export const Route = createFileRoute('/api/users/me_/password')({
         throw new AppError('User not found', 404)
       }
 
+      if (!dbUser.passwordHash) {
+        throw new AppError('Password not set for this account', 400)
+      }
+
       const isMatch = await bcrypt.compare(
         body.currentPassword,
         dbUser.passwordHash,

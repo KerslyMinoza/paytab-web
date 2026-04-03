@@ -4,6 +4,7 @@ import { authenticateRequest } from '~/lib/auth'
 import { AppError, ConflictError } from '~/lib/errors'
 import prisma from '~/lib/prisma'
 import crypto from 'crypto'
+import { sendAuthInviteEmail, sendFriendRequestEmail } from '~/lib/resend'
 
 const INVITE_EXPIRY_DAYS = 7
 
@@ -59,6 +60,12 @@ export const Route = createFileRoute('/api/friends/invite')({
           },
         })
 
+        sendFriendRequestEmail({
+          to: targetUser.email,
+          inviterName: user.name || user.email,
+          friendshipId: friendship.id,
+        })
+
         return jsonResponse({ friendship }, 201)
       }
 
@@ -80,6 +87,12 @@ export const Route = createFileRoute('/api/friends/invite')({
           email: emailLower,
           expiresAt: new Date(Date.now() + INVITE_EXPIRY_DAYS * 24 * 60 * 60 * 1000),
         },
+      })
+
+      sendAuthInviteEmail({
+        to: emailLower,
+        inviterName: user.name || user.email,
+        token,
       })
 
       return jsonResponse({ friendship }, 201)
